@@ -76,7 +76,7 @@ public class Main {
                     System.out.println("You Win!");
                 }
             }
-            //when the computer's choice is scissors, if the player has rock, the player wins, else, the player wins
+            //when the computer's choice is scissors, if the player has rock, the player wins, else, the player loses
             else{
                 if(player_choice.equals("rock")){
                     System.out.println("You Win!");
