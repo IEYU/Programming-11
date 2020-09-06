@@ -8,6 +8,7 @@ public class Main {
 
         //print the instruction for the player
         System.out.println("Choose rock paper or scissors. 'r' for rock, 'p' for paper and 's' for scissors. To exit choose 'x'");
+        System.out.println("*********************************************");
 
         while (true) {
             //first displays wins and losses when the new game starts
