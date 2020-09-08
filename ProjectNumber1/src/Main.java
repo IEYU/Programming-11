@@ -9,11 +9,9 @@ public class Main {
         for (int i = 0; i < s.length(); i++){
             //check whether the current letter is a vowel("a", "e", "i", "o", "u"), and if it is, increase the counter answer by 1
             if(s.substring(i, i+1).equals("a")||s.substring(i, i+1).equals("e")||s.substring(i, i+1).equals("i")||s.substring(i, i+1).equals("o")||s.substring(i, i+1).equals("u")) {
-                //answer is the counter that keeps track of how many times a vowel occur in the string s
                 answer += 1;
             }
         }
-        //doesn't do anything to the original string s but only returns the counter answer
         return answer;
     }
     //Code you problem number two here
@@ -23,53 +21,33 @@ public class Main {
         //iterates through the string and check on the letters in a group of 3
         for (int i = 0; i+2 < s.length(); i++){
             //check if the current letter, the next letter, and the next next letter equals to "bob"
-            //if yes, increase the counter by 1
-            //if not, does nothing but moving on to the next letter
             if (s.substring(i, i+3).equals("bob")){
-                //answer is the counter that counts how many times "bob" occurs
                 answer += 1;
             }
         }
-        //doesn't do anything to the original string s but only returns the counter answer
         return answer;
     }
     //Code your solution to problem number 3 here
     static String problemThree(String s){
         //your code here
-        //max_word represents the longest sequence of letters that follows the alphabetical order (so-far)
-        String max_word = "";
-        //current_word represents the current sequence of letters that follows the alphabetical order, it's not necessarily the longest and is to be compared with max_word
-        String current_word = "";
+        String max_seq = "";//max_seq represents the longest sequence of letters that follows the alphabetical order (so-far)
+        String curr_seq = "";//curr_seq represents the current sequence of letters that follows the alphabetical order
 
-        //iterates by initial letters
-        //e.g. (a - bcd..., b - cde..., c - def..., d - efg...)
-        for (int i = 0; i < s.length(); i ++) {
-            //iterates through the string
-            //e.g. (abcdefg...)
-            for (int j = i; j + 1 < s.length(); j++) {
-                //check whether the characters are in alphabetical orders
-                if (s.charAt(j) <= s.charAt(j + 1)) {
-                    //current word is composed of the letter at current index and the following letters until the next letter that doesn't follow the alphabetical order.
-                    //i stays the same and j increases, so current word keeps updating itself
-                    current_word = s.substring(i, j + 2);
+        for (int i = 0; i < s.length(); i ++) {//iterates by initial letters. e.g. (a - bcd..., b - cde...)
+            for (int j = i; j + 1 < s.length(); j++) {//iterates through the string. e.g. (abcdefg...)
+                if (s.charAt(j) <= s.charAt(j + 1)) {//check whether the characters are in alphabetical orders
+                    curr_seq = s.substring(i, j + 2);
                 }
                 else{
-                    //if the next letter doesn't follow the alphabetical order, current_word doesn't include that letter
-                    current_word = s.substring(i, j + 1);
+                    curr_seq = s.substring(i, j + 1);
                     break;
                 }
-                //current_word now represents the longest sequence that follows alphabetical order starts with the first initial letter (e.g. a)
-                //it is now about to move on to the next initial letter (e.g. b) and repeats everything
             }
-            //before the next iteration starts, it needs to check whether the current_word is the longest sequence so far.
-            //If yes, the assign max_word to the sequence so that this longest sequence so far doesn't get replaced by another string in the iterations
-            //if not, it means the current_word is not the longest sequence and max_word remains to be the last longest sequence
-            if (current_word.length() > max_word.length()) {
-                max_word = current_word;
+            if (curr_seq.length() > max_seq.length()) {//before the next iteration starts, it needs to check whether curr_seq is the longest sequence so far.
+                max_seq = curr_seq;
             }
         }
-        //modify s to be the longest sequence and return it
-        s = max_word;
+        s = max_seq;
         return s;
     }
     public static void main(String[] args) {
