@@ -7,11 +7,13 @@ public class Main {
         //your code here
         //iterates through the string and check on every letter
         for (int i = 0; i < s.length(); i++){
-            //check whether the current letter is a vowel, and if it is, increase the counter by 1
+            //check whether the current letter is a vowel("a", "e", "i", "o", "u"), and if it is, increase the counter answer by 1
             if(s.substring(i, i+1).equals("a")||s.substring(i, i+1).equals("e")||s.substring(i, i+1).equals("i")||s.substring(i, i+1).equals("o")||s.substring(i, i+1).equals("u")) {
+                //answer is the counter that keeps track of how many times a vowel occur in the string s
                 answer += 1;
             }
         }
+        //doesn't do anything to the original string s but only returns the counter answer
         return answer;
     }
     //Code you problem number two here
@@ -24,22 +26,26 @@ public class Main {
             //if yes, increase the counter by 1
             //if not, does nothing but moving on to the next letter
             if (s.substring(i, i+3).equals("bob")){
+                //answer is the counter that counts how many times "bob" occurs
                 answer += 1;
             }
         }
+        //doesn't do anything to the original string s but only returns the counter answer
         return answer;
     }
     //Code your solution to problem number 3 here
     static String problemThree(String s){
         //your code here
+        //max_word represents the longest sequence of letters that follows the alphabetical order (so-far)
         String max_word = "";
+        //current_word represents the current sequence of letters that follows the alphabetical order, it's not necessarily the longest and is to be compared with max_word
         String current_word = "";
 
         //iterates by initial letters
-        //a - bcd..., b - cde..., c - def..., d - efg...
+        //e.g. (a - bcd..., b - cde..., c - def..., d - efg...)
         for (int i = 0; i < s.length(); i ++) {
             //iterates through the string
-            //abcdefg...
+            //e.g. (abcdefg...)
             for (int j = i; j + 1 < s.length(); j++) {
                 //check whether the characters are in alphabetical orders
                 if (s.charAt(j) <= s.charAt(j + 1)) {
@@ -74,6 +80,9 @@ public class Main {
         The tests will put your method through several different Strings to test
         all possible cases.  If you have 100% success then there is no bugs in your methods.
          */
-        String s;
+        String s = "azcbobobegghakl";
+        System.out.println(problemOne(s));
+        System.out.println(problemTwo(s));
+        System.out.println(problemThree(s));
     }
 }
