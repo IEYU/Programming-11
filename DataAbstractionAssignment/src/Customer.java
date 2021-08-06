@@ -68,7 +68,6 @@ public class Customer {
     }
 
     //requires: double (amount of money to withdraw), String (which account to withdraw from)
-    //modifies: nothing
     //effects: check if withdrawing an amount of money exceeds the overdraft limit
     private boolean checkOverdraft(double amt, String account){
         //your code here
