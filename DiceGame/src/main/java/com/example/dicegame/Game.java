@@ -67,7 +67,7 @@ public class Game {
         btn_roll_2.setDisable(true);
         btn_lower.setDisable(true);
         btn_higher.setDisable(true);
-        System.out.println(dice_number);
+        //System.out.println(dice_number);
 
         if (dice_number.get(1) > dice_number.get(0) && higher == true){
             score ++;
