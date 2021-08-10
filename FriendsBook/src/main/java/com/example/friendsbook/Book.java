@@ -29,6 +29,7 @@ public class Book {
     public Button btn_edit;
     public Button btn_hide;
 
+    //create a new friend object and add it to the friend list
     public void add_friend(MouseEvent mouseEvent) {
         String friend_name = txt_name.getText();
         String friend_age;
@@ -69,11 +70,13 @@ public class Book {
         txt_memory.clear();
     }
 
+    //delete the selected friend
     public void delete_friend(MouseEvent mouseEvent) {
         int index = list_friends.getSelectionModel().getSelectedIndex();
         list_friends.getItems().remove(index);
     }
 
+    //display the information of the selected friend.
     public void show_friend(MouseEvent mouseEvent) {
         Friend selected_friend;
         selected_friend = list_friends.getSelectionModel().getSelectedItem();
@@ -85,10 +88,7 @@ public class Book {
         show_memory.setText(selected_friend.getMemory());
     }
 
-    public void edit_friend(MouseEvent mouseEvent) {
-
-    }
-
+    //hide the information of the selected friend.
     public void hide_friend(MouseEvent mouseEvent) {
         show_name.clear();
         show_age.clear();
