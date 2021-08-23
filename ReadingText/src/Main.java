@@ -8,7 +8,7 @@ public class Main {
     //TODO Copy each line into its own element of an ArrayList
     //TODO Create a method that can search for a word in the entire text, return every index position of the arraylist that the word is in.
     public static void main(String[] args) throws IOException {
-        FileReader fr = new FileReader("src/ProgrammingHistory.txt");
+        FileReader fr = new FileReader("ProgrammingHistory.txt");
         ArrayList<String> lines = new ArrayList<>();
         BufferedReader br = new BufferedReader(fr);
         String line;
@@ -18,7 +18,7 @@ public class Main {
         br.close();
 
         //searching method
-        search(lines, "plugboard");
+        search(lines, "the");
     }
 
     public static void search(ArrayList<String> list, String text) throws IOException {
