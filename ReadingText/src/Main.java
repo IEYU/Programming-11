@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class Main {
     //TODO Copy each line into its own element of an ArrayList
@@ -13,24 +14,27 @@ public class Main {
         BufferedReader br = new BufferedReader(fr);
         String line;
         while ((line = br.readLine()) != null){
+            //Copy each line into its own element of an ArrayList
             lines.add(line);
         }
         br.close();
 
         //searching method
-        search(lines, "the");
+        search(lines, "however");
     }
 
     public static void search(ArrayList<String> list, String text) throws IOException {
         System.out.println("Searching for word: " + text + "\n");
+        int total = 0;
         for (int i=0; i < list.size(); i++){
-            String line = list.get(i);
+            String line = list.get(i).toLowerCase();
             if (line.contains(text)){
                 String[] words = line.replaceAll("[.,;()]","").split(" ");
                 ArrayList<Integer> index = new ArrayList<>();
                 for (int j=0; j < words.length; j++){
                     //System.out.println(words[j]);
                     if (words[j].equals(text)){
+                        total ++;
                         index.add(j);
                     }
                 }
@@ -39,5 +43,6 @@ public class Main {
                 }
             }
         }
+        System.out.println("\ntotal occurance: " + total);
     }
 }
